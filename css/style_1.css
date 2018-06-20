@@ -1,0 +1,11 @@
+ .information li {
+   list-style-type: none;
+   float: left;
+   margin-right: 100px;
+   margin-left: -40px;
+  
+}
+.clearfix {
+    clear: both;
+    
+}

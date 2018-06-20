@@ -1,0 +1,54 @@
+.container {
+    margin: 0 auto;
+}
+
+.title {
+    background-color:gray;
+    height: 120px;
+    line-height: 120px;
+    
+}
+
+ #resume {
+    color: white;
+
+} 
+/* .content {
+    margin-top: -22px;
+} */
+
+.content-item {
+    float: left; 
+   width: 100%;
+   border: 1px solid black;
+   overflow: hidden;
+}
+
+.content-item-left {
+    float: left;  
+    width: 15%; 
+    background-color: grey;
+    margin-bottom: -99999px;
+    padding-bottom:99999px; 
+    vertical-align: middle;
+    text-align: center;
+    
+}
+
+ .information li {
+    list-style-type: none;
+    float: left;
+    margin-right: 100px;
+    margin-left: -40px;
+} 
+
+/* .clearfix {
+    clear: both;
+} */
+
+.content-item-right  {
+    float: left;
+    margin-left: 20px;
+     margin-bottom: -99999px;
+    padding-bottom: 99999px; 
+}
