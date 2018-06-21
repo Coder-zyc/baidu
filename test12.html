@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对齐方式</title>
+    <style>
+        /*inline元素水平居中*/
+        .parent1 {
+            background-color: yellow;
+            text-align: center /*text-align控制水平排列*/
+        }
+        .child1 {
+            background-color: red;
+        }
+
+         /*block元素水平居中(子元素设定宽度，margin：0 auto 居中)*/
+         .parent2 {
+             background-color: blue;
+
+         }
+         .child2 {
+             background-color: black;
+             margin: 0 auto;
+             width: 200px;
+         }
+
+         /*block元素水平居中(子元素不舍得宽度)
+            1.父元素设置 text-alin：center 居中
+            2.子元素设置块级元素（block）转化为 行内元素（inline）或行内块级元素(inline-block)
+         
+         */
+         .parent3 {
+             background-color:wheat;
+             text-align: center;
+         }
+         .child3 {
+             background-color: aqua;
+             display: inline-block;
+         }
+
+          /*******************************************************分割线*********************************************************************/  
+
+    </style>
+</head>
+<body>
+    <!--inline元素水平居中-->
+    <div class="parent1">
+        <span class="child1">DEMO</span>
+    </div>
+
+    <!--block元素水平居中(子元素设定宽度，margin：0 auto 居中)-->
+    <div class="parent2">
+        <div class="child2">DEMO</div>
+    </div>
+
+    <!--block元素水平居中(子元素不舍得宽度)-->
+    <div class="parent3">
+            <div class="child3">DEMO</div>
+        </div>
+
+</body>
+</html>
