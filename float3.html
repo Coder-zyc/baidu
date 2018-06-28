@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>float--右侧固定宽度，左侧根据浏览器宽度进行自适应变化</title>
+    <style type="text/css">
+        .context {
+            
+            background:black;
+            overflow: hidden;
+        }
+
+        .left {
+            width: 100%;
+        
+            background: red;
+
+        }
+       .right {
+           width: 300px;
+           float: right;
+           background:yellow;
+       }
+       .left ,
+       .right {
+           padding-bottom: 99999px;
+           margin-bottom:-99999px;
+       }
+    </style>
+</head>
+<body>
+   <div class="context">
+        <div class="right">aaaaaaaaaaaaaa<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+       <div class="left"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> <br></div>
+      
+   </div>
+     
+</body>
+</html>
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中间固定宽度，两边自适应布局-浮动加负边距</title>
+    <style type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+
+        }
+        .wrap{
+            overflow: hidden;
+           background: black;
+        }
+        .center{
+           width: 960px;
+          background: yellow;
+           float: left;
+     
+        }
+        .left{
+           
+           background: red;
+            float: left;
+            width: 50%;
+            margin-left: -480px;
+        }
+        .right{
+          
+          background: blue;
+            float: right;
+            width: 50%;
+            margin-right: -480px;
+        }
+            
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="left">
+           
+        </div>
+        <div class="center">测试居中</div>
+        <div class="right">
+           
+        </div>
+    </div>
+     
+</body>
+</html>

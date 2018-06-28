@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .a{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+       .center {
+           width: 960px; 
+           background: yellow;
+        }
+        .center,.left,.right {
+             float: left; 
+        }
+        .left{
+             width: 50%;
+            margin-left: -480px; 
+            background: red;
+        }
+        .right  {
+            width: 50%;
+            background: blue;
+            margin-left: -480px
+            
+        }
+        .left .inner,
+        .right .inner {
+            margin-left: 480px;
+            
+        }
+        
+       
+        
+      
+    </style>
+</head>
+<body>
+        <div class="a">
+             <div class="left">
+                <div class="inner">left</div>
+            </div>
+            <div class="center">
+                <div class="inner">center<br>        
+                </div>
+            </div>
+            <div class="right">
+                <div class="inner">right</div>
+            </div>
+        </div>
+</body>
+</html>
