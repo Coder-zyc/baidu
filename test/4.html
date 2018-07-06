@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       .center {
+           width: 600px; 
+           background: yellow;
+        }
+        .center,.left,.right {
+             float: left; 
+        }
+        .left,.right {
+             width: 50%;
+            margin-left: -300px; 
+        }
+        
+        .left .inner,.right .inner {
+             margin-left: 300px; 
+             background: red;
+        }
+        
+      
+    </style>
+</head>
+<body>
+             <div class="left">
+                <div class="inner">left</div>
+            </div>
+            <div class="center">
+                <div class="inner">center<br>
+                    
+                </div>
+            </div>
+            <div class="right">
+                <div class="inner">right</div>
+            </div>
+</body>
+</html>

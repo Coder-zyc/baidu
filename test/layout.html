@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>page</title>
+        <style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.clearfloat:after{
+				content: "";
+				display: table;
+				clear: both;
+			}
+			/*****************************************/
+            .head {
+                width: 100%;
+                background: #333;
+               
+            }
+            .headBar{
+                width: 960px;
+                margin: 0 auto;
+                color: white;
+            }
+			h1 {
+				float: left;
+				line-height: 80px;
+			}
+			.headBar ul li {
+				float: right;
+				margin-left: 20px;
+				list-style: none;
+				font-size: 20px;
+			}
+			.headBar ul li a {
+				color: white;
+			}
+			/******************************************/
+
+			.nav {
+				width: 100%;
+				height: 300px;
+				background: #66bb33;
+				
+			}
+			.navmiddle {
+				width: 960px;
+				height: 300px;
+				margin:0 auto;
+				position: relative;
+			}
+			.navmiddle ul {
+				position: absolute;
+				right: 0;
+				bottom: 10px;
+
+			}
+			.navmiddle ul li {
+				float: left;
+				list-style: none;
+				margin-left: 20px;
+				width: 40px;
+				height: 45px;
+				border: 1px solid black;
+				text-align: center;
+				line-height: 45px;
+				background: white;
+				opacity: 0.5;
+				
+			}
+			.navmiddle ul .on {
+				padding-top: 20px;
+				opacity: 0.8;
+			}
+			.navmiddle ul .in {
+				margin-top: 20px;
+			}
+			/******************************************************/
+
+			.mainNav {
+				width: 100%;
+				border-bottom:1px solid #dddddd;
+			}
+			.mainNavMiddle {
+				width: 960px;
+				margin: 0 auto;
+			}
+			.mainNavMiddle ul li {
+				float: left;
+				list-style: none;
+				width:100px;
+           	    height:50px;
+				line-height: 50px;
+				text-align: center;
+				margin-top: 20px;
+				border-top-left-radius: 25px;
+				border-top-right-radius: 25px;
+				border:1px solid #ddd;
+				background: #eee;
+				margin-bottom: -1px;
+			}
+			.mainNavMiddle ul .on {
+				background: white;
+				border-bottom:1px solid white;
+				
+			}
+			/*****************************************************/
+
+			.mainBox {
+				width: 100%;
+				margin-bottom: 20px;
+			}
+			.mainBoxMiddle {
+				width: 960px;
+				margin: 0 auto;
+				
+			}
+			.box1,
+			.box2,
+			.box3 {
+				width: 100%;
+				height: 200px;
+				margin-top:10px;
+			}
+			.minBox1 {
+				float: left;
+				width: 32%;
+				height: 200px;
+				border: 1px solid #ddd;
+				text-align: center;
+				line-height: 200px;
+				margin-left: 10px;
+			}
+			.minBox2 {
+				float: left;
+				width: 23%;
+				height: 200px;
+				border: 1px solid #ddd;
+				text-align: center;
+				line-height: 200px;
+				margin-left: 16px;
+			}
+			/*******************************************/
+
+			.footer {
+				
+				width: 100%;
+				background: #333;
+				height: 100px;
+				color: white;
+			}
+			.footer p {
+				text-align: center;
+			}
+        
+        </style>
+	</head>
+	<body>
+		<div class="head">
+			<div class="headBar clearfloat">	
+                <h1>logo</h1>			
+				<ul>
+					<li><a href="#">Github</a></li>
+					<li><a href="#">Register</a></li>
+					<li><a href="#">Login</a></li>
+				</ul>
+				
+			</div>
+		</div>
+		<div class="nav">
+			<div class="navmiddle clearfloat">
+				<ul>
+					<li class="in"><a href="">1</a></li>
+					<li class="on"><a href="">2</a></li>
+					<li class="in"><a href="">3</a></li>
+					<li class="in"><a href="">4</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="mainNav">
+			<div class="mainNavMiddle clearfloat" >
+				<ul>
+					<li class="on">HOME</li>
+					<li class="">PROFILE</li>
+					<li class="">ABOUT</li>
+				</ul>
+		   </div>
+		</div>
+		<div class="mainBox">
+			<div class="mainBoxMiddle">
+				<div class="box1 clearfloat">
+					<div class="minBox1">This is Conten1</div>
+					<div class="minBox1">MaybeContent 2</div>
+					<div class="minBox1">Content 3</div>
+				</div>
+				<div class="box2 clearfloat">
+					<div class="minBox2">Content 4</div>
+					<div class="minBox2">Content 5</div>
+					<div class="minBox2">Content 6</div>
+					<div class="minBox2">Content 7</div>
+				</div>	
+				<div class="box3 clearfloat">
+					<div class="minBox1">Content 8</div>
+					<div class="minBox1">Content 9</div>
+					<div class="minBox1">Content 10</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<p>&copy; 2018 ife.baidu.com</p>
+		</div>
+	</body>
+</html>

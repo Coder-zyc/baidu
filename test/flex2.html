@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex--左侧固定宽度，右侧根据浏览器宽度进行自适应变化</title>
+    <style type="text/css">
+        .context {
+            display: flex;
+            height: 500px;
+            flex-flow: row;
+        }
+        .left {
+            width: 200px;
+            background: red;
+        }
+        .right {
+            flex: 1;
+            background:yellow;
+        }
+
+    </style>
+</head>
+<body>
+   <div class="context">
+       <div class="left"></div>
+       <div class="right"></div>
+   </div>
+     
+</body>
+</html>
+

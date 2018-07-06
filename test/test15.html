@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>CSS issue - word break | Brain's Work Station</title>
+<style>
+* { line-height:1.5; font-family:Verdana, Geneva, sans-serif }
+body {margin:20px; background:url(http://blog.brain1981.com/wp-content/themes/brain1981/images/noise.png) }
+div { width:200px; background:#eee;  font-size:14px; }
+h2 { font-size:16px; margin-top:20px; margin-bottom:2px }
+
+hgroup {overflow:hidden; width:400px }
+hgroup a { float:left; width:75px; height:67px ; margin-right:20px}
+hgroup h1, hgroup h1 a{ float:left; font-size:28px; width:300px; height:46px; margin:0; text-decoration:none; color:#666 }
+hgroup h2{ float:left; font-size:13px; width:300px; height:40px; margin:0; font-weight:normal; color:#666 }
+</style>
+</head>
+
+<body>
+<hgroup>
+		<a href="http://blog.brain1981.com/" title="Brain的技术笔记" rel="home" class="site-logo"><img src="http://blog.brain1981.com/wp-content/themes/brain1981/images/logo.png"></a>
+		<h1 class="site-title"><a href="http://blog.brain1981.com/" title="Brain的技术笔记" rel="home">Brain的技术笔记</a></h1>
+		<h2 class="site-description">前端开发，视觉设计，web技术研究…</h2>
+</hgroup>
+
+
+<h1>CSS issue - word break</h1>
+<h2>Normal</h2>
+<div>This is an issue in CSS word break which is really puzzling! ddddddddddddddddddddddddddddddddddddddddddddddd</div>
+
+
+<h2>word-break: break-all</h2>
+<div style="word-break:break-all">This is an issue in CSS word break which is really puzzling! ddddddddddddddddddddddddddddddddddddddddddddddd</div>
+
+
+<h2>word-wrap: break-word</h2>
+<div style="word-wrap:break-word">This is an issue in CSS word break which is really puzzling! ddddddddddddddddddddddddddddddddddddddddddddddd</div>
+
+
+<h2>hyphens: auto</h2>
+<div style="-moz-hyphens: auto; -ms-hyphens: auto; -webkit-hyphens: auto; hyphens: auto;">This is an issue in CSS word break which is really puzzling! ddddddddddddddddddddddddddddddddddddddddddddddd</div>
+
+
+<h2>hyphens: auto; word-wrap: break-word</h2>
+<div style=" -moz-hyphens: auto; -ms-hyphens: auto; -webkit-hyphens: auto; hyphens: auto; word-wrap:break-word ">This is an issue in CSS word break which is really puzzling! ddddddddddddddddddddddddddddddddddddddddddddddd</div>
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flexLayout</title>
+    <style>
+        *{
+            margin: 0;
+            
+        }
+        .head {
+            width: 100%;
+            display: flex;
+            overflow:hidden;
+            background: #333333;
+        }
+        .head-left {
+            flex: 1;
+            /* background: red; */
+        }
+        .head-middle {
+            width: 960px;
+            color: white;
+            /* background: yellow; */
+        }
+        .head-right {
+            flex:1;
+            /* background: blue; */
+        }
+        .head-left,
+        .head-middle,
+        .head-right {
+            padding-bottom: 99999px;
+            margin-bottom:-99999px;
+        }
+        #logo {
+            float: left;
+            line-height: 70px;
+            font-size: 1.5em;
+        }
+        #nav {
+            float: right;
+
+        }
+        #nav ul li {
+            list-style: none;
+            float: left;
+            margin-left: 10px;
+            text-decoration: underline;   
+        }
+        #nav ul li a {
+            color: white;
+        }
+        /**********************************/
+
+        .banner {
+            display: flex;
+            width: 100%;
+            height: 400px;
+            background: #66bb33;
+
+        }
+        .banner-left {
+            flex: 1;
+            /* background: red; */
+        }
+        .banner-middle {
+            position: relative;
+            width: 960px;
+            /* background: yellow; */
+        }
+        .banner-right {
+            flex: 1;
+            /* background: blue; */
+        }
+        .banner-middle-number {
+            position: absolute;
+            bottom: 50px;
+            right: 20px;;
+        }
+        .number {
+            float: left;
+            border: 1px solid black;
+            margin-left: 10px;
+            width: 40px;
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+            opacity:0.5;
+            background: white;
+        }
+        #two {
+            opacity:0.8;
+            padding-top: 20px;
+        }
+        #one,
+        #three,
+        #four {
+            margin-top:20px;
+        }
+        /******************************/
+        
+        .nav {
+            display: flex;
+            border-bottom:1px solid #dddddd;
+            
+            
+        }
+        .nav-left {
+            flex: 1;
+            /* background: red; */
+            /* border-bottom: 1px solid #dddddd; */
+        }
+        .nav-middle {
+            width: 960px;
+            /* background: yellow; */
+           
+        }
+        .nav-right {
+            flex: 1;
+            /* background: blue; */
+            /* border-bottom: 1px solid #dddddd; */
+        }
+        .nav-main {
+            float: left;
+            width:100px;
+            height:50px;
+            line-height: 50px;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: -1px;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            
+            border: 1px solid #dddddd;
+            /* border-bottom: 1px solid white;  */
+            background: #eeeeee;
+        }
+        #home {
+            /* margin-bottom: -1px; */
+            background: white;
+            border-bottom: 1px solid white; 
+        }
+        /*******************************************/
+
+        .main {
+            display:flex;
+            
+        }
+        .main-left {
+            flex:1;
+            /* background: red; */
+        }
+        .main-middle{
+            width: 960px;
+            display:flex;
+            /* background: yellow; */
+            flex-direction: column;
+        }
+        .main-right {
+            flex:1;
+            /* background: blue; */
+        }
+        .main-middle-top {
+            flex: 1;
+            display:flex;
+        }
+        .main-middle-middle {
+            flex: 1;
+            display:flex;
+            /* margin-top: 100px; */
+        }
+        .main-middle-bottom {
+            flex: 1;
+            display: flex;
+        }
+        .main-middle-top-content {
+            flex: 1;
+            /* width: 350px; */
+            height: 200px;
+            line-height: 200px;
+            
+            text-align: center;
+            margin-left: 10px;
+            margin-top:10px;
+            border:1px solid #eeeeee;
+        }
+        .main-middle-middle-content {
+            flex: 1;
+            /* width: 300px; */
+            height: 200px;
+            margin-left: 10px;
+            margin-top:10px;
+            text-align: center;
+            line-height: 200px;
+            border: 1px solid #eeeeee;
+            
+        }
+        .main-middle-bottom-content {
+            flex: 1;
+            /* width: 300px; */
+            height: 200px;
+            margin-left: 10px;
+            margin-top:10px;
+            text-align: center;
+            line-height: 200px;
+            border: 1px solid #eeeeee;
+            
+        }
+        .foot {
+            width: 100%;
+            height: 50px;
+            background: #666666;
+            color: white;
+            text-align: center;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <div class="head-left">
+            <div class="inner"></div>
+        </div>
+         <div class="head-middle">
+             
+                <div id="logo">Logo</div>
+                <div id="nav">
+                    <ul>
+                        <li><a href="#">Github</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Login</a></li>
+                    </ul>
+                </div>     
+        </div> 
+        <div class="head-right">
+            <div class="inner"></div>
+        </div>
+    </div>
+     <div class="banner">
+        <div class="banner-left">
+            <div class="inner"></div>
+        </div>
+        <div class="banner-middle"> 
+            <div class="banner-middle-number">
+                <div class="number" id="one">1</div> 
+                <div class="number" id="two">2</div>
+                <div class="number" id="three">3</div>
+                <div class="number" id="four">4</div>  
+            </div>
+         </div>
+        <div class="banner-right">
+            <div class="inner"></div>
+        </div> 
+        
+    </div>
+    <div class="nav">
+         <div class="nav-left"></div>
+         <div class="nav-middle">
+            
+                <div class="nav-main" id="home">HOME</div>
+                <div class="nav-main">PROFILE</div>
+                <div class="nav-main">ABOUT</div>
+                
+            
+         </div>
+         <div class="nav-right"></div>
+    </div>
+    <div class="main">
+        <div class="main-left"></div>
+        <div class="main-middle">
+                <div class="main-middle-top">
+                        <div class="main-middle-top-content">This is Content 1</div>
+                        <div class="main-middle-top-content"> Maybe Content 2</div>
+                        <div class="main-middle-top-content">Content 3</div>
+                    </div>
+                    <div class="main-middle-middle">
+                        <div class="main-middle-middle-content">Content4</div>
+                        <div class="main-middle-middle-content">Content5</div>
+                        <div class="main-middle-middle-content">Content6</div>
+                        <div class="main-middle-middle-content">Content7</div>
+                        
+                    </div>
+                    <div class="main-middle-bottom">
+                            <div class="main-middle-bottom-content">Content8</div>
+                            <div class="main-middle-bottom-content">Content9</div>
+                            <div class="main-middle-bottom-content">Content10</div>
+                            
+                    </div>
+        </div>
+        <div class="main-right"></div>
+        
+    </div>
+    <div class="foot">2018 ife.baidu.com</div>
+
+</body>
+</html>

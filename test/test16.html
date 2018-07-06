@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="http://www.softwhy.com/" />
+<title>蚂蚁部落</title>
+<style type="text/css">
+body {
+  margin: 0;
+  padding: 0;
+}
+.main {
+  height: 300px;
+  width: 200px;
+  position:relative;
+  border: 10px solid #ccc;
+  overflow: hidden;
+  margin:0px auto;
+}
+.box1 {
+  height: 100%;
+  width: 100%;
+  background: green;
+}
+.box2 {
+  height: 100%;
+    width: 100%;
+    position: absolute;
+    text-align:center;
+    line-height:300px;
+    top: 0;
+    left: -300px;
+    background:rgba(160,100,150,0.6);
+    transition: all 0.5s;
+}
+.main:hover #a {
+  left: 0;
+}
+</style>
+</head>
+<body>
+  <div class="main">
+    <div class="box1"></div>
+    <div class="box2" id="a">蚂蚁部落</div>
+  </div>
+</body>
+</html>
