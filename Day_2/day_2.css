@@ -1,0 +1,384 @@
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        } /*这里是关键*/
+
+        .clearfloat:after {
+            display: table;
+            content: "";
+            clear: both;
+        }
+     
+    
+        .left {
+            float: left;
+            width: 350px;
+            height: 100%;
+    
+          
+
+        }
+        .main {
+            overflow: hidden; /*形成BFC布局*/
+            height: 100%;
+            /* background: pink; */
+           
+        }
+        .left_icon {
+            width: 100px;
+            height: 100%;
+            float: left;
+            background: #1d2531;
+            position: relative;
+        }
+        .left_nav {
+            width: 250px; /*规定固定宽度*/
+            height: 100%;
+            float: left;
+            background: #222c3c;
+            position: relative;
+                 
+        }
+        .left_icon ul {
+            margin-left: -30px;
+           
+        }
+        .left_icon ul li{
+            list-style: none;
+            margin-top: 20px;
+        }
+        .left_icon div {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            
+        }
+        .left_icon div input {
+            display: inline-block;
+            margin-right: 10px;
+        }
+       .left_nav_1{
+            width: 200px;
+            margin: 0 auto;
+            border-bottom: 1px solid #5b6779;
+            box-sizing: border-box;
+            
+       }
+        
+        .left_nav_menu {
+            margin-top:20px; 
+            margin-left: -40px;
+            
+        }
+
+       .left_nav_menu li {
+           list-style: none;
+           margin-top: 20px;
+           font-size: 12px;
+
+       }
+
+       .left_nav_menu li a {
+           text-decoration: none;
+           color: #b7c0cd;
+           font-size: 14px;
+       }
+       .left_nav_menu:first-child {
+           color: #5b6779;
+       }
+       
+       .left_nav_menu:first-child  img{
+          display: block;
+          float: right;
+         
+       } 
+
+       
+       .number {
+           width: 30px;
+           height: 20px;
+           float: right;
+           background: #1f96ee;
+           border-radius: 15px;
+           color: #fff;
+           text-align: center;
+           line-height: 20px;
+       }
+       .left_nav_menu_icon {
+            width: 20px;
+           height: 10px;     
+           float: left;
+           margin-right: 10px;
+       }
+       #dashboard {
+           border-bottom: 0px;
+       }
+       .left_nav_bottom{
+           width: 200px;
+           position: absolute; 
+           bottom: 10px;
+           color: #fff;
+           font-size: 14px;
+           left:20px;
+       }
+       .left_nav_bottom div {
+           float: left;
+           margin-right: 10px;
+       }
+       /*****************************************/
+       .main-top {
+           width: 100%;
+           height: 80px;
+           border-bottom: 1px solid #e6e9ec;
+       }
+       #messages {
+           float: left;
+           color: #354052;
+           margin-left: 30px;
+           line-height: 80px;
+           font-size: 24px;
+       }
+       .administrator {
+           float: right;
+           margin-top: 20px;
+           color:#b5b5b5;
+           font-size: 14px;
+       }
+       .administrator div {
+           float: left;
+           margin-right: 30px;
+           
+       }
+      
+       .administrator span {
+           font-size: 16px;
+           color: #2399f1;
+       }
+
+       .main-left {
+           width: 400px;
+           height: 100%;
+           /* background: red; */
+           float: left;
+           
+       }
+       .main-right {
+           overflow: hidden;  /*形成BFC布局*/
+           /* background: yellow; */
+           height: 100%;
+       }
+       .main-left-search {
+           width: 100%;
+           height:75px;
+           margin: 0 auto;
+           position: relative;
+            border: 1px solid #e6e9ec;
+          
+           
+       }
+    
+       #search {
+           width: 345px;
+           height: 40px;
+           border-radius: 8px;
+           margin-top: 15px;
+           margin-left: 20px;
+        
+       }
+       .main-left-search div {
+          width: 30px;
+          height: 20px;
+          position: absolute;
+          right: 40px;
+          top: 30px    
+       } 
+       #submit{
+          display: block;
+          width: 20px;
+          height: 20px;
+        }
+        .main-left-person {
+            width: 100%;
+            height: 128px;
+            border: 1px solid #e6e9ec; 
+            box-sizing: border-box;
+        }
+        .main-left-person-top div {
+            float: left;   
+            margin-top: 10px;
+            
+        }
+       .main-left-person-top-icon {
+           margin: 20px;
+           margin-bottom: 10px;
+         
+       }
+       .main-left-person-top-name {
+           margin-right: 150px;
+           font-size: 14px;
+       }
+       .main-left-person-top-name {
+             font-size: 14px;
+             color: #b5b5b5;
+       }
+       .main-left-person-top-name span {
+           font-size: 16px;
+           color: #585d68;
+       }
+       .main-left-person-top-time {
+           font-size: 14px;
+           color: #b5b5b5;
+       }
+       .main-left-person-bottom{
+           width: 350px;
+           font-size: 14px;
+           margin-left: 20px;
+           color: #585d68;
+       }
+       .blue-number {
+        width: 20px;
+        height:20px;
+        float: right;
+        background: #1f96ee;
+        border-radius: 50%;
+        color: #fff;
+        text-align: center;
+        line-height: 20px;
+        margin-top:-50px;
+       margin-right:-20px;
+    }
+      #bessie {
+          color: #2399f1;
+      }
+     #blue-circle {
+       border-radius:50%;
+         
+         
+     }
+      #blue-circle{
+          width: 10px;
+          height: 10px;
+          border-radius: 50px;
+          background: #2399f1;
+         margin-top: 5px; 
+         margin-right: 10px;
+      }
+    /*********************************************/
+
+    .main-right-top {
+        width: 100%;
+        height: 75px;
+        font-size: 18px; 
+        color: #585d68;
+        border: 1px solid #e6e9ec; 
+
+    }
+    .main-right-top-name {
+        margin-left: 30px;
+        line-height: 75px;
+        float: left;
+    }
+    .green-circle{
+          width: 10px;
+          height: 10px;
+          border-radius: 50px;
+          background: green;
+         float: left ;
+         margin-top: 35px;
+         margin-left: 20px;
+      }
+     
+     
+      .main-right-1 div {
+          float: left;
+          margin-left: 50px;
+         
+          
+      }
+      .main-right-introduce {
+          width: 900px;
+          font-size: 14px;
+          color: #585d68;
+          
+      }
+      .main-right-introduce-name {
+          display: inline-block;
+          margin-right: 20px;
+          font-size: 16px;
+          color: #585d68;
+      }
+      .main-right-1-photo {
+          width: 100%;
+          margin-left: 150px;
+      }
+    
+
+      .txt-line {
+          width: 100%;
+        
+         
+      }
+
+      .line {
+        display: inline-block;
+        width: 100%;
+        
+        border-top: 1px solid #ccc ;
+        z-index: 1;
+      }
+      .txt {
+         color: #686868;
+         /* vertical-align: middle; */
+         margin:0 auto;
+         width: 100px;
+         height: 15px;
+         position: relative;
+         z-index: 2;
+         top:-15px;
+         background: white;
+         text-align: center;
+
+     }
+     /* .main-right-top-button {
+         position: relative;
+     }
+     .main-right-top-button div input {
+        margin-left: -6px;
+        margin-top: 20px;
+         
+     }
+     .main-right-top-button div {
+         position: absolute;
+        
+         
+     }
+     .main-right-top-button-left {
+         right: 200px;
+         border-right: 1px solid  #ccc;
+         padding-right: 20px;
+         margin-top: 5px
+     }
+     .main-right-top-button-right {
+         right: 50px;
+     } */
+     .main-right-bottom {
+         margin-left: 50px;
+     
+     }
+     #text-value {
+         display: block;
+         float: left;
+         height: 49px;
+         width: 900px;
+         bottom: 10px;
+     }
+     #text-button {
+        display: block;
+        float: left;
+        
+     }
