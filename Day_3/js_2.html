@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="first-number" type="number" value="0"  placeholder="第一个数字">
+    <input id="second-number" type="number" value="0"  placeholder="第二个数字">
+    <button id="add-btn" onclick="add()">加</button>
+    <button id="minus-btn" onclick="sub()">减</button>
+    <button id="times-btn" onclick="mul()">乘</button>
+    <button id="divide-btn" onclick="div()">除</button>
+    <p id="result">运算结果</p>
+    <script>
+       //  var a = document.getElementById("first-number").value;
+        // var b = document.getElementById("second-number").value;
+   
+     
+               
+        function add(){
+             var a = document.getElementById("first-number").value;
+            var b = document.getElementById("second-number").value;
+            // alert(a);
+             var c=parseInt(a) + parseInt(b);
+            // var c = a+b;
+           //  var a1 = a.value;
+           // var b1 = b.value;
+            //alert(document.getElementById("first-number").value);
+           //    alert(a);
+            //document.getElementById("result").innerHTML = a+b;
+            //document.getElementById("result").value = a+b;
+              document.getElementById("result").innerHTML = "运算结果 :"+c;
+        }
+        function sub(){
+             var a = document.getElementById("first-number").value;
+             var b = document.getElementById("second-number").value;
+             var c=parseInt(a) - parseInt(b);
+             document.getElementById("result").innerHTML = "运算结果 :"+c;
+        }
+        function mul(){
+             var a = document.getElementById("first-number").value;
+             var b = document.getElementById("second-number").value;
+             var c=parseInt(a) * parseInt(b);
+             document.getElementById("result").innerHTML = "运算结果 :"+c;
+        }
+        function div(){
+             var a = document.getElementById("first-number").value;
+             var b = document.getElementById("second-number").value;
+             var c=parseInt(a) / parseInt(b);
+             document.getElementById("result").innerHTML = "运算结果 :"+c;
+        }
+
+    </script>
+</body>
+</html>
