@@ -13,16 +13,16 @@
     <button id="divide-btn" onclick="div()">除</button>
     <p id="result">运算结果</p>
     <script>
-       //  var a = document.getElementById("first-number").value;
-        // var b = document.getElementById("second-number").value;
+        var a = document.getElementById("first-number");
+        var b = document.getElementById("second-number");
    
      
                
         function add(){
-             var a = document.getElementById("first-number").value;
-            var b = document.getElementById("second-number").value;
+             var a1 =a.value;
+            var b1 = b.value;
             // alert(a);
-             var c=parseInt(a) + parseInt(b);
+             var c=parseInt(a1) + parseInt(b1);
             // var c = a+b;
            //  var a1 = a.value;
            // var b1 = b.value;
@@ -33,21 +33,23 @@
               document.getElementById("result").innerHTML = "运算结果 :"+c;
         }
         function sub(){
-             var a = document.getElementById("first-number").value;
-             var b = document.getElementById("second-number").value;
-             var c=parseInt(a) - parseInt(b);
+            //  var a = document.getElementById("first-number").value;
+            //  var b = document.getElementById("second-number").value;
+            var a1 =a.value;
+            var b1 = b.value;
+             var c=parseInt(a1) - parseInt(b1);
              document.getElementById("result").innerHTML = "运算结果 :"+c;
         }
         function mul(){
-             var a = document.getElementById("first-number").value;
-             var b = document.getElementById("second-number").value;
-             var c=parseInt(a) * parseInt(b);
+            //  var a = document.getElementById("first-number").value;
+            //  var b = document.getElementById("second-number").value;
+             var c=parseInt(a1) * parseInt(b1);
              document.getElementById("result").innerHTML = "运算结果 :"+c;
         }
         function div(){
-             var a = document.getElementById("first-number").value;
-             var b = document.getElementById("second-number").value;
-             var c=parseInt(a) / parseInt(b);
+            //  var a = document.getElementById("first-number").value;
+            //  var b = document.getElementById("second-number").value;
+             var c=parseInt(a1) / parseInt(b1);
              document.getElementById("result").innerHTML = "运算结果 :"+c;
         }
 
