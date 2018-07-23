@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>帧动画</title>
+    <style>
+        /* *{
+            margin:0 auto;
+            width: 100%;
+            height: 100%;
+        } */
+        #erik{
+            margin: 0 auto;
+            width: 480px;
+            height: 480px;
+            background-image: url("erik_ce204002.jpg");
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="erik">
+
+    </div>
+    
+    <script>
+        var count=0,
+            erik = document.getElementById("erik"),
+            positionY;
+            // positionY=[];
+            // for(var i=0;i<17;i++){
+            //     positionY[i]=i*480;
+            // }
+
+         setInterval(function(){
+            
+            if(count >=0 && count <34){
+              
+                if(count>=0 && count <17){
+                    positionY= -480 * count;
+                    erik.style.backgroundPositionY=positionY+"px";
+                }
+
+                if(count>=17 && count <34){
+                    var a = (count-17)*480;
+                    var b =(positionY+a);
+                    erik.style.backgroundPositionY=b+"px";
+                    
+                }
+                count++;
+            }else{
+                count=0;
+            }
+           
+        },100);
+    </script>
+    
+
+</body>
+</html>

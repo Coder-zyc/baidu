@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>js 年月日三级联动</title>
+</head>
+<body>
+        
+            <select id="year-select" onchange="yearDay(this.value)">  
+                    <option value="">请选择 年</option>
+            </select>
+            
+            <select id="month-select" onchange="monthDay(this.value)"> 
+                    <option value="">选择 月</option>  
+            </select>
+            
+            <select id="day-select" onchange="day(this.value)">
+                    <option value="">选择 日</option>
+            </select>
+            
+            <select id="hour-select">
+                    <option value="">请选择 时</option>
+            </select>
+            
+            <select id="minite-select">
+                    <option value="">请选择 分</option>
+            </select>
+            
+            <select id="second-select">
+                    <option value="">请选择 秒</option>
+            </select>
+            
+         
+            
+            <p id="result-wrapper" ></p>
+
+        <script>
+            // var changeDD = 1;
+            // window.addEventListener("onload",initDate());
+            // function initDate(){
+            //     var yearSelect = document.getElementById("year-select");
+            //     var monthSelect = document.getElementById("month-select");
+            //     MonHead = [31,28,31,30,31,30,31,31,30,31,30,31];
+            //     var y = new Date().getFullYear();
+            //     for(var i=2000;i<=2020;i++){
+            //         yearSelect.options.add(new Option(i,i))
+            //     }
+            //     for(var i=1;i<13;i++){
+            //         monthSelect.options.add(new Option(i,i));
+            //     }
+            //      yearSelect.value = y; 
+            //     monthSelect.value = new Date().getMonth()+1;
+            //     var n = MonHead[new Date().getMonth()]
+            //     if(new Date().getMonth()==1 && isLeapYear(y)){
+            //         n++;
+            //     }
+            //     writeDay(n);
+            // }
+
+            // function YYYYDD(str){
+            //     var month= document.getElementById("month-select");   
+            //     var monthValue=month.options[month.selectedIndex].value;
+            //     if(monthValue == ""){
+            //         optionsClear(document.getElementById("day-select"));
+            //         return ;
+            //     }
+            //     var n =MonHead[monthValue-1];
+            //     if(monthValue==2 && isLeapYear(str)){
+            //         n++;
+            //     }
+            //     writeDay(n);
+            // }
+
+            // function MMDD(str){
+            //     var year = document.getElementById("year-select");
+            //     var  yearValue =year.options[year.selectedIndex].value;
+            //     if(yearValue == ""){
+            //         optionsClear(document.getElementById("day-select"));
+            //         return;
+            //     }
+            //     var n =MonHead[str-1];
+            //     if(str ==2 && isLeapYear(yearValue)){
+            //         n++;
+            //     }
+            //     writeDay(n);
+            // }
+
+            // function writeDay(n){
+            //     var daySelect = document.getElementById("day-select");
+            //     optionsClear(daySelect);
+            //     for(var i=1;i<=n;i++){
+            //         daySelect.options.add(new Option(i,i));
+            //         if( i == changeDD){
+            //             daySelect[i].selected = true; //保持选中状态;
+            //         }
+            //     }
+            // }
+            
+            // function optionsClear(day){
+            //     day.options.length = 1;
+            // }
+            
+            // function DDD(str){
+            //     changeDD = str;
+            // }
+
+            //  function isLeapYear(year){
+            //     if(year % 4 == 0 && (year%100 !=0) )
+            //         return true;
+            //     else
+            //         return false;
+            // }
+            
+            var  MonDate=[31,28,31,30,31,30,31,31,30,31,30,31];
+            var changeDD =new Date().getDate();
+            //点开页面时加载
+            window.addEventListener("load",initDate());
+             //初始化日期
+             function initDate(){
+              
+                 var year = document.getElementById("year-select");
+                 var month = document.getElementById("month-select");
+                 var day = document.getElementById("day-select");
+                var hour = document.getElementById("hour-select");
+                 var minite = document.getElementById("minite-select");
+                 var second = document.getElementById("second-select");
+                var result =  document.getElementById("result-wrapper");
+                 var y =new Date().getFullYear();
+                 for(var i=2000;i<=2022;i++){
+                      year.options.add(new Option(i,i));
+                 }
+                 for(var i=1;i<=12;i++){
+                     month.options.add(new Option(i,i));
+                    
+                 }
+                 for(var i=0;i<24;i++){
+                    hour.options.add(new Option(i,i));
+                 }
+                 for(var i=0;i<60;i++){
+                     minite.options.add(new Option(i,i));
+                     second.options.add(new Option(i,i));
+                 }
+                 hour.value=new Date().getHours();
+              
+                 minite.value = new Date().getMinutes();
+                 second.value = new Date().getSeconds();
+                 year.value=y;
+                 month.value=new Date().getMonth()+1;
+                 var n = MonDate[new Date().getMonth()];
+                 if((new Date().getMonth+1)==2 && isLeapYear(y)){
+                     n=29;
+                 }
+                 writeDay(n);
+                 result.innerHTML = nowTime();
+                // var a =nowTime();
+                // console.log(a);
+             }
+             document.getElementById("year-select").addEventListener("click",function(){
+                     document.getElementById("result-wrapper").innerHTML=nowTime();
+             })
+             document.getElementById("month-select").addEventListener("click",function(){
+                     document.getElementById("result-wrapper").innerHTML=nowTime();
+             })
+             document.getElementById("day-select").addEventListener("click",function(){
+                     document.getElementById("result-wrapper").innerHTML=nowTime();
+             })
+             document.getElementById("hour-select").addEventListener("click",function(){
+                     document.getElementById("result-wrapper").innerHTML=nowTime();
+             })
+             document.getElementById("minite-select").addEventListener("click",function(){
+                     document.getElementById("result-wrapper").innerHTML=nowTime();
+             })
+             document.getElementById("second-select").addEventListener("click",function(){
+                     document.getElementById("result-wrapper").innerHTML=nowTime();
+             })
+
+             function yearDay(str){
+                var month =  document.getElementById("month-select");
+                var day = document.getElementById("day-select");
+                var monthValue = month.options[month.selectedIndex].value;
+                if(monthValue == ""){
+                    clearDay(day);
+                    return;
+                }
+                var n =MonDate[monthValue-1];
+                if(monthValue ==2 && isLeapYear(str)){
+                    n=29;
+                }
+                writeDay(n);
+             }
+
+             function monthDay(str){
+                 var year = document.getElementById("year-select");
+                 var day = document.getElementById("day-select");
+                 var yearValue = year.options[year.selectedIndex].value;
+                 if(yearValue == ""){
+                     clearDay(day);
+                     return;
+                 }
+                 var n = MonDate[str-1];
+                 if(str ==2 && isLeapYear(yearValue)){
+                     n=29;
+                 }
+                 writeDay(n);
+
+             }
+
+             function writeDay(n){
+                 var day = document.getElementById("day-select");
+                 clearDay(day);
+                 for(var i=1;i<=n;i++){
+                     day.options.add(new Option(i,i));
+                     if(i == changeDD){
+                            day.options[i].selected=true;
+                     }
+                 }
+             }
+             function clearDay(day){
+                 
+                 day.options.length = 1;
+             }
+
+             function day(str){
+                     changeDD=str;
+             }
+
+             function isLeapYear(year){
+                 if(year % 4 ==0 && year% 100 !=0){
+                     return true;
+                 }else{
+                     return false;
+                 }
+             }
+
+
+             function chooesTime(){
+                var  year = document.getElementById("year-select"),
+                      month =document.getElementById("month-select"),
+                      day = document.getElementById("day-select"),
+                      hour = document.getElementById("hour-select"),
+                      minite = document.getElementById("minite-select"),
+                      second = document.getElementById("second-select"),
+                    //   yearValue =(year.options[year.selectedIndex].value-1970)*365*24*60*60*1000,
+                    //   monthValue = month.options[month.selectedIndex].value*30*24*60*60*1000,
+                    //   dayValue = day.options[day.selectedIndex].value*24*60*60*1000,
+                    //   hourValue = hour.options[hour.selectedIndex].value*60*60*1000,
+                    //   miniteValue = minite.options[minite.selectedIndex].value*60*1000,
+                    //   secondValue = second.options[second.selectedIndex].value*1000;
+                      yearValue =year.options[year.selectedIndex].value,
+                      monthValue = month.options[month.selectedIndex].value,
+                      dayValue = day.options[day.selectedIndex].value,
+                      hourValue = hour.options[hour.selectedIndex].value,
+                      miniteValue = minite.options[minite.selectedIndex].value,
+                      secondValue = second.options[second.selectedIndex].value;
+                 var endDate = new Date(yearValue+"-"+monthValue+"-"+dayValue+" "+hourValue+":"+miniteValue+":"+secondValue);
+                 var end =endDate.getTime();
+                 return end
+             }
+
+             function nowTime(){
+                 var week;
+                 var yearNow=new Date().getFullYear(),
+                     monthNow= new Date().getMonth()+1,
+                     dayNow = new Date().getDate(),
+                     hourNow = new Date().getHours(),
+                     miniteNow = new Date().getMinutes(),
+                     secondNow = new Date().getSeconds(),
+                     oneDay = new Date().getDay();
+
+                 switch(oneDay){
+                     case 0:
+                        week="星期日";
+                        break;
+                     case 1:
+                        week="星期一";
+                        break;
+                    case 2:
+                        week="星期二";
+                        break;
+                    case 3:
+                        week="星期三";
+                        break;
+                    case 4:
+                        week="星期四";
+                        break;
+                    case 5:
+                        week="星期五";
+                        break;
+                    case 5:
+                        week="星期六";
+                        break;
+                 }
+
+                 var now =new Date().getTime();
+                 var choose =chooesTime();
+                 var a=choose-now;
+                 var day,hour,minite,second;
+                 if(a>=0){
+                     day = Math.floor(a/1000/60/60/24);
+                    hour = Math.floor(a/1000/60/60%24);
+                    minite = Math.floor(a/1000/60%60);
+                    second = Math.floor(a/1000%60);
+                     return "现在距离"+ yearNow+"年"+monthNow+"月"+dayNow+"日"+week+ hourNow+":"+miniteNow+":"+secondNow +"还有"+ day +"天"+ hour+ "小时"+ minite+" 分"+ second+" 秒";
+                 }else if(a<0) {
+
+                    day = Math.floor(Math.abs(a)/1000/60/60/24);
+                    hour = Math.floor(Math.abs(a)/1000/60/60%24);
+                    minite = Math.floor(Math.abs(a)/1000/60%60);
+                    second = Math.floor(Math.abs(a)/1000%60);
+                     return "现在距离"+ yearNow+"年"+monthNow+"月"+dayNow+"日"+week+ hourNow+":"+miniteNow+":"+secondNow +"已过去"+ day +"天"+ hour+ "小时"+ minite+" 分"+ second+" 秒";
+                 }else {
+                    return "现在距离"+ yearNow+"年"+monthNow+"月"+dayNow+"日"+week+ hourNow+":"+miniteNow+":"+secondNow +"还有0天0小时0 分0秒";
+                 }
+                 
+             }
+        </script>
+</body>
+</html>

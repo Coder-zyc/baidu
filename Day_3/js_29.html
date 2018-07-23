@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时钟</title>
+</head>
+<body>
+    <p id="time1"></p>
+    <p id="time2"></p>
+    <script>
+
+        var t1 = document.getElementById("time1");
+        var t2 = document.getElementById("time2");
+        setInterval(function(){           
+            var mydate = new  Date();
+            var year = mydate.getFullYear();
+            t1.innerHTML = year+"年"+month(mydate)+"月"+date(mydate)+"日"+day(mydate)+" "+time(mydate);
+        },500)     
+
+          setInterval(function(){           
+            var mydate = new  Date();
+            var year = mydate.getFullYear();
+            t2.innerHTML = year+"-"+month(mydate)+"-"+date(mydate)+" "+day2(mydate)+" "+time(mydate)+" "+pmOrAm(mydate);
+        },500)    
+
+
+        //月
+        function month(obj){
+            var month;
+            if(( obj.getMonth()+1)<10){
+                month="0"+(obj.getMonth()+1)
+            }else{
+                month=obj.getMonth()+1;
+            }
+            return month;
+
+        }
+
+        //日
+        function date(obj){
+            var date;
+            if(obj.getDate()<10){
+                date="0"+obj.getDate();
+            }else{
+                date=obj.getDate();
+            }
+            return date;
+        }
+
+        //时,分，秒
+        function time(obj){
+            var h ,m,s,str;
+            if(obj.getHours()<10){
+                h="0"+obj.getHours();
+            }else{
+                h=obj.getHours();
+            }
+            if(obj.getMinutes()<10){
+                m="0"+obj.getMinutes();
+            }else{
+                m=obj.getMinutes();
+            }
+            if(obj.getSeconds()<10){
+                s="0"+obj.getSeconds();
+            }else{
+                s=obj.getSeconds();
+            }
+            str=h+":"+m+":"+s;
+            return str;
+        }
+
+        function pmOrAm(obj){
+            var str;
+            if(obj.getHours<=12){
+                str="AM";
+            }else{
+                str="PM";
+            }
+            return str;
+        }
+
+
+         //取星期几
+        function day(obj){
+            var day ;
+            if(obj.getDay()==0){
+                day="星期日";
+            }
+            if(obj.getDay()==1){
+                day="星期一";
+            }
+            if(obj.getDay()==2){
+                day="星期二";
+            }
+            if(obj.getDay()==3){
+                day="星期三";
+            }
+            if(obj.getDay()==4){
+                day="星期四";
+            }
+            if(obj.getDay()==5){
+                day="星期五";
+            }
+            if(obj.getDay()==6){
+                day="星期六";
+            }
+            return day;
+        }
+
+            function day2(obj){
+            var day ;
+            if(obj.getDay()==0){
+                day="Sunday";
+            }
+            if(obj.getDay()==1){
+                day="Monday";
+            }
+            if(obj.getDay()==2){
+                day="Tuesday";
+            }
+            if(obj.getDay()==3){
+                day="Wednesday";
+            }
+            if(obj.getDay()==4){
+                day="Thursday";
+            }
+            if(obj.getDay()==5){
+                day="Firday";
+            }
+            if(obj.getDay()==6){
+                day="Saturday";
+            }
+            return day;
+        }
+
+
+    </script>
+</body>
+</html>

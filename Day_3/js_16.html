@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+                var x=00;
+                var y=00;
+                var z=00;
+               
+                function changeState(){
+                  if(x<=59&&x>=0 && y<=59 && y>=0 && z<=59 && z>=0){
+                    //注意这里的调用方式，使用引号包围
+                    let content=document.getElementById('content');
+                     content.innerHTML=z+":"+y+":"+x;
+                     console.log(x);
+                      x=x+1;
+                  }else if(y<=59 && y>=0 && z<=59 && z>=0){
+                    y=y+1;
+                    x=0;
+                  }
+                  else if (z<=59 && z>=0) {
+                    z=z+1;
+                    y=0;
+                    x=0;
+                  }
+                  setTimeout("changeState()",1000 );
+                }
+              </script>
+              <button onclick="changeState()">开始计时</button>
+              <p>已运行时间</p>
+              <p id="content"></p>
+              
+</body>
+</html>
+
+       
+        

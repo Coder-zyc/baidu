@@ -22,7 +22,25 @@
              var a1 =a.value;
             var b1 = b.value;
             // alert(a);
-             var c=parseInt(a1) + parseInt(b1);
+            if(a1 == "" || a1 == null ){       // ""中间不能有空格，要不然无法识别
+                // alert(1);
+                console.log("数字不能为空");
+                return;
+            }
+            if(b1 == "" || b1 ==null){
+                // alert(2);
+                console.log("数字不能为空");
+                return;
+            }
+             if(isNaN(a1) || isNaN(b1)){
+                    console.log("请输入数字");
+                    return;
+             }else{
+                    var c=parseInt(a1) + parseInt(b1);
+                    document.getElementById("result").innerHTML = "运算结果 :"+c;
+            }
+            
+            
             // var c = a+b;
            //  var a1 = a.value;
            // var b1 = b.value;
@@ -30,27 +48,75 @@
            //    alert(a);
             //document.getElementById("result").innerHTML = a+b;
             //document.getElementById("result").value = a+b;
-              document.getElementById("result").innerHTML = "运算结果 :"+c;
+              
         }
         function sub(){
             //  var a = document.getElementById("first-number").value;
             //  var b = document.getElementById("second-number").value;
             var a1 =a.value;
             var b1 = b.value;
+            if(a1 == "" || a1 == null ){
+                console.log("第一个数字为空");
+                return;
+            }
+            if(b1 =="" || b1 ==null ){
+                console.log("第二个数字为空")
+                return;
+            }
+            if (isNaN(a1) || isNaN(b1)){
+                console.log("请输入数字");
+                return;
+            }else{
              var c=parseInt(a1) - parseInt(b1);
              document.getElementById("result").innerHTML = "运算结果 :"+c;
+            }
         }
         function mul(){
             //  var a = document.getElementById("first-number").value;
             //  var b = document.getElementById("second-number").value;
+            var a1 =a.value;
+            var b1 =b.value;
+            if(a1 =="" || a1 == null){
+                console.log("第一个数字为空");
+                return;
+            }
+            if(b1 =="" || b1 == null){
+                console.log("第二个数字为空");
+                return;
+            }
+            if( isNaN(a1) || isNaN(b1) ){
+                console.log("请输入数字");
+                return;
+            }else{
              var c=parseInt(a1) * parseInt(b1);
              document.getElementById("result").innerHTML = "运算结果 :"+c;
+            }
         }
         function div(){
             //  var a = document.getElementById("first-number").value;
             //  var b = document.getElementById("second-number").value;
-             var c=parseInt(a1) / parseInt(b1);
-             document.getElementById("result").innerHTML = "运算结果 :"+c;
+            var a1 =a.value;
+            var b1 =b.value;
+            if(a1 =="" || a1 == null){
+                console.log("第一个数字为空");
+                return;
+            }
+            if(b1 =="" || b1 == null){
+                console.log("第二个数字为空");
+                return;
+            }
+            if( isNaN(a1) || isNaN(b1) ){
+                console.log("请输入数字");
+                return;
+            }else{
+                if(b1 == "0"){
+                    console.log("除数不能为0");
+                    return;
+                }
+                var c=parseInt(a1) / parseInt(b1);
+                 document.getElementById("result").innerHTML = "运算结果 :"+c;
+            }
+            
         }
 
     </script>

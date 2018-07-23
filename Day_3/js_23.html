@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function diyTrim(str) {
+        var result = "",
+            start =0,
+            last = 0;
+    
+        // do something
+        for(var i=0;i<str.length;i++){
+            if(str.charCodeAt(i) != 12288 && str.charCodeAt(i) !=32){
+                start=i
+                break;
+            }
+        }
+        for(var i=str.length-1;i>=0;i++){
+            if(str.charCodeAt(i) != 12288 && str.charCodeAt(i) !=32){
+                last=i+1;
+                break;
+            }
+        }
+        result=str.substring(start,last);
+        return result
+    }
+
+    
+    // 测试用例
+    console.log(diyTrim(' a f b    ')); // ->a f b
+    console.log(diyTrim('    ffdaf    ')); // ->ffdaf
+    console.log(diyTrim('1    ')); // ->1
+    console.log(diyTrim('　　f')); // ->f
+    console.log(diyTrim('  　  a f b 　　 ')); // ->a f b
+    console.log(diyTrim(' ')); // ->
+    console.log(diyTrim('　')); // ->
+    console.log(diyTrim('')); // ->
+    
+    /*
+    去掉字符串str中，连续重复的地方
+    */
+    // function removeRepetition(str) {
+    //     var result = "",
+    //         strA=[],
+    //         strB=[],
+    //         j=0;
+    //     strA = str.split("");
+    //     for(var i=0 ;i<strA.length;i++){
+    //         strB[j]=strA[i];
+    //        if(strB[j]==strA[i+1]){
+    //            j++;
+    //            strB[j]=strA[i+1];
+    //        }
+    //        j++;
+    //     }
+    //     console.log(strB);
+    
+    //     return result;
+    // }
+    function removeRepetition(str){
+        var result="";
+        len=str.length;   
+        for(var i=0 ; i<len;i++){
+            if(str[0]==str[1]){
+                str=str.slice(1);
+            }else{
+                result=result+str[0];
+                str=str.slice(1);
+            }
+        }
+        return result;
+    }
+    
+    // 测试用例
+    console.log(removeRepetition("aaa")); // ->a
+    console.log(removeRepetition("abbba")); // ->aba
+    console.log(removeRepetition("aabbaabb")); // ->abab
+    console.log(removeRepetition("")); // ->
+    console.log(removeRepetition("abc")); // ->abc
+    </script>
+ 
+</body>
+</html>

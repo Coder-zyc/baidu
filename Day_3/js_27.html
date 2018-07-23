@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>栈</title>
+</head>
+<body>
+        <input id="stack-input" type="text">
+        <p id="stack-cont">栈内容：apple-gt;pear</p>    
+        <button id="push-btn">进栈</button>
+        <button id="pop-btn">退栈</button>
+        <button id="font-btn">打印栈顶元素内容</button>
+        <button id="empty-btn">判断栈是否为空</button>
+
+<script>
+
+var stack = ["apple", "pear"];
+
+</script>
+        
+        <script>
+        var pushBtn = document.getElementById("push-btn"),
+            popBtn = document.getElementById("pop-btn"),
+            fontBtn = document.getElementById("font-btn"),
+            emptyBtn = document.getElementById("empty-btn"),
+            stackInput = document.getElementById("stack-input"),
+            stackCont = document.getElementById("stack-cont");
+     
+        var queue = ["apple", "pear"];
+
+        //入栈    
+       pushBtn.addEventListener("click",function(){     
+            stack.push(stackInput.value);
+            stackCont.innerHTML="栈内容："+stack.join("->");
+            });
+        
+        
+        //出栈
+        popBtn.addEventListener("click",function(){     
+            //   stack.pop();
+              stack=stack.slice(0,(stack.length-1));
+              console.log(stack);
+              stackCont.innerHTML="队列内容："+stack.join("->");
+            });
+
+        //打印栈头元素内容
+          fontBtn.addEventListener("click",function(){
+            console.log(stack[(stack.length-1)]);
+        });
+
+        //判断队列是否为空
+         emptyBtn.addEventListener("click",function(){
+            if(stack[stack.length-1]==null){
+                console.log("队列为空");
+            }else{
+                console.log("队列不为空");
+            }        
+        });
+   
+
+        </script>
+</body>
+</html>
