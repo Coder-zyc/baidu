@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #email-input{
+            width: 400px;
+        }
+        #email-sug-wrapper{
+            width:400px;
+            padding: 0;
+            background: red;
+            margin-top:-2px;
+            border: 1px solid ;
+           
+        }
+        #email-sug-wrapper li{
+            width: 400px;
+           
+            list-style: none;
+            background: yellow;
+            /* margin-left: 40px; */
+            cursor:default;
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text">
+        <ul id="email-sug-wrapper" class="email-sug" ></ul>
+    </div>
+    <script>
+        // 邮箱后缀List参考
+        var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+        var email_imput  = document.getElementById("email-input");
+        var email_sug_wrapper = document.getElementById("email-sug-wrapper");
+        var i=0;
+        /*keyup：按下去，抬起来触发事件
+          keypress:按下去，触发事件(backspace不算触发)
+          keydown：按下去，触发事件(键盘上每个键都可以触发)
+        
+        */
+
+        // email_imput.onkeydown = function(){
+        //     inputValue();
+        //     console.log(inputValue())
+        //     // console.log('onkeydown ' + this.value);
+        // }
+
+        // email_imput.onkeypress = function() {
+        //     inputValue();
+        //     console.log(inputValue());
+        //     // console.log('onkeypress ' + this.value);
+        // }
+
+
+
+        email_imput.oninput = function() {
+            displayOrHide()
+            var str =email_imput.value;  //获取input的值
+            var html_str=HtmlUtil.htmlEncode(trim(str)) ;
+            // console.log(html_str);
+            var li = inputValue(html_str);
+            addEmailSugWrapper(li);
+
+             //键盘监听
+        document.onkeydown = function(e) {
+            
+            var keyNum = window.event ? e.keyCode : e.which;
+            // console.log(keyNum);
+            var lis =  email_sug_wrapper.getElementsByTagName("li");
+           
+                    // console.log(1);
+                    if (keyNum == "38") {
+                            if (lis[i] != email_sug_wrapper.firstChild) {
+                                console.log(li[i]); 
+                                lis[i].setAttribute("onclick"," ");
+                                lis[i].style.cssText="";
+                                i--;
+                                lis[i].setAttribute("onclick","click");
+                                lis[i].style.cssText="background-color:green;";
+                            } else {
+                                lis[i].setAttribute("onclick"," ");
+                                lis[i].style.cssText=""
+                                i=lis.length-1;
+                                lis[lis.length-1].setAttribute("onclick","click");
+                                lis[lis.length-1].style.cssText="background-color:green;";
+                            }
+                        
+                        
+                    }
+                    if (keyNum == "40") {
+                        if (lis[i] !=email_sug_wrapper.lastChild) {
+                           lis[i].setAttribute("onclick"," ");
+                           lis[i].style.cssText="";
+                           i++;
+                           lis[i].setAttribute("onclick","click");
+                           lis[i].style.cssText="background-color:green;";
+                        } else {
+                           lis[i].setAttribute("onclick"," ");
+                           lis[i].style.cssText="";
+                           i=0;
+                           lis[0].setAttribute("onclick","click");
+                           lis[0].style.cssText="background-color:green;";
+                        }
+                    }
+
+                    if (keyNum == "13") {
+                        email_imput.value = lis[i].firstChild.nodeValue;
+                        hide();
+                        
+                    }
+
+                
+            
+             
+        }
+           
+            // console.log(li);
+            // console.log(inputValue())
+            // console.log('onkeyup ' + this.value);
+        }
+
+        email_sug_wrapper.onmouseover = function () {
+            var lis = email_sug_wrapper.getElementsByTagName("li");
+                for(var i=0;i<lis.length;i++){
+                    lis[i].onmouseover = function(){
+                        this.style.cssText="background-color:pink;"
+                    }
+                    lis[i].onmouseout = function (){
+                        this.style.cssText="";
+                    }
+                   
+                    // console.log(lis[i])
+                    lis[i].onclick = function(){
+                        // console.log(lis[i])
+                      
+                        var lisValue =  this.firstChild.nodeValue;
+                        // console.log(lisValue);
+                        email_imput.value =lisValue ;
+                        // console.log(email_imput.value);
+                        hide();
+                    }
+                }
+            
+        }
+        
+        //重置选择状态
+        function resetState() {
+           var lis =  email_sug_wrapper.getElementsByTagName("li");
+           for(var i=0;i<lis.length;i++){
+               lis[i].onclick = function(){
+                   if(i != 0){
+                       this.setAttribute("onclick"," ");
+                       lis[0].setAttribute("onclick","click");
+                   }
+               }
+           }
+        }
+        
+       
+        
+        //去左右空格
+        function trim (str) {
+           if(str==""){
+               return 
+           }else {
+               return str.replace(/(^\s+)|(\s+$)/g,"");
+           }
+        }
+        // console.log(trim("        i m"));
+        
+        //生成提示框中的提示内容
+        function inputValue(str) {
+            // var emailValue =  document.getElementById("email-input").value;    
+           var li=[],
+               li2=[];
+           var strA,strB;
+        
+           if(str !=null){
+               if(str.indexOf("@") !=-1){
+                    strA =str.substring(0,str.indexOf("@")+1);  //@之前的字符串
+                    strB = str.substring(str.indexOf("@")+1);   // @之后的字符串
+                    //  console.log(strB);
+               }else{
+                    strA = str+"@";
+                    
+               }
+           }
+
+           var j=0; 
+           for(var i =0 ;i<postfixList.length;i++) {
+                if(postfixList[i].indexOf(strB) !=-1){
+                    li2[j]=strA +postfixList[i];
+                    j++;
+                    console.log(li2[j]);
+                }
+                    li[i] = strA + postfixList[i];
+                
+            }
+            if(li2.length !=0){
+                // console.log(li2);
+                return li2;
+            }else{
+                // console.log(li);
+                // console.log(li);
+                return li; 
+            }
+
+             
+        }
+
+        //将提示内容添加到email-sug-wrapper中
+        function addEmailSugWrapper(li) {
+           var email_sug_wrapper = document.getElementById("email-sug-wrapper");
+           //清除原先的内容
+            while(email_sug_wrapper.hasChildNodes()){
+                email_sug_wrapper.removeChild(email_sug_wrapper.lastChild);
+           }
+  
+           for(var i=0 ;i<li.length;i++ ){
+            //    console.log(li[i]);
+               var  email_li = document.createElement("li");
+               email_li.innerHTML = li[i];
+               email_sug_wrapper.appendChild(email_li);
+           }
+        }
+        
+        //清除原先的里内容
+       /* function removeEmailSugWrapper(li){
+            var email_sug_wrapper = document.getElementById("email-sug-wrapper");
+            var removeLi =  email_sug_wrapper.querySelectorAll("li");
+            for(var i=0 ;i<removeLi;i++ ){
+                email_sug_wrapper.removeChild(removeLi[i]);
+            }
+        } */
+        
+        //控制email-sug-wrapper的显示/隐藏状态
+        function displayOrHide() {
+            var emailValue =  email_imput.value; 
+            // console.log(emailValue);
+            // console.log(typeof(emailValue));
+            var str =  trim(emailValue);
+            if (str == null || str.length==0 ) {
+                // console.log(2);
+                hide();
+            } else {
+                display();
+            // hide();
+            }
+        }
+        
+        //显示提示框
+        function display(){
+            var email_sug_wrapper = document.getElementById("email-sug-wrapper");
+             email_sug_wrapper.style.cssText=""
+
+        }
+
+        //隐藏提示框
+        function hide(){
+            var email_sug_wrapper = document.getElementById("email-sug-wrapper");
+            email_sug_wrapper.style.cssText="display:none;"
+        }
+
+        //html字符转义
+        var HtmlUtil = {
+
+            //1.用浏览器内置转换器实现html转码
+            htmlEncode:function(html){
+                var temp = document.createElement("div");
+                if(temp.textContent != undefined){
+                    temp.textContent=html;
+                }else{
+                    temp.innerText = html;
+                }
+                var output = temp.innerHTML;
+                temp = null;
+                return output;
+            },
+            //2用浏览器内置转换器实现html解码
+            htmlDecode:function(text){
+                var temp = document.createElement("div");
+                temp.innerHTML = text;
+                var output = temp.innerText || temp.textContent;
+                temp = null;
+                return output;
+            },
+            //3.用正则实现html转码
+            htmlEncodeByRegExp:function(str){
+                var s="";
+                s=str.replace(/&/g,"&amp;");
+                s=s.replace(/</g,"&lt;");
+                s=s.replace(/>/g,"&gt;");
+                s=s.replace(/ /g,"&nbsp;");
+                s=s.replace(/\'/g,"&#39;");
+                s=s.replace(/\"/g,"&quot;");
+                return s;
+            },
+            //4用正则实现html解码
+            htmlDecodeByRegExp:function(str){
+                var s ="";
+                s = str.replace(/&amp;/g,"&");
+                s = s.replace(/&lt;/g,"<");
+                s = s.replace(/&gt;/g,">");
+                s = s.replace(/&nbsp;/g," ");
+                s = s.replace(/&#39/g,"\'");
+                s = s.replace(/&quot/g,"\"");
+                return s;
+            }
+        }
+    </script>
+</body>
+</html>
