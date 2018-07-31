@@ -49,96 +49,96 @@ var product_radio_select = document.getElementById("product-radio-select");
 
 
 
-function createCheckBox( checkBoxDiv, checkBoxObj ) {
-    var checkBoxAll = document.createElement("input");
-    checkBoxAll.setAttribute("type","checkbox");
-    checkBoxAll.setAttribute("id","checkAll");
-    checkBoxAll.setAttribute("checked",false);
-    // checkBoxAll.setAttribute("checkbox-type","all");
-    checkBoxDiv.appendChild(checkBoxAll);
-    checkBoxDiv.appendChild(document.createTextNode("全选"));
-    for(var i in checkBoxObj) {
-       var checkBox =  document.createElement("input");
-       checkBox.setAttribute("name","checkName");
-       checkBox.setAttribute("type","checkbox");
-       checkBox.setAttribute("id",i);
-       checkBox.setAttribute("checked",false);
-    //    checkBox.setAttribute("checkbox-type","");
-       if(checkBoxObj[i].value){
-        checkBox.setAttribute("value",checkBoxObj[i].value); 
-       }
+// function createCheckBox( checkBoxDiv, checkBoxObj ) {
+//     var checkBoxAll = document.createElement("input");
+//     checkBoxAll.setAttribute("type","checkbox");
+//     checkBoxAll.setAttribute("id","checkAll");
+//     // checkBoxAll.setAttribute("checked",false);
+//     // checkBoxAll.setAttribute("checkbox-type","all");
+//     checkBoxDiv.appendChild(checkBoxAll);
+//     checkBoxDiv.appendChild(document.createTextNode("全选"));
+//     for(var i in checkBoxObj) {
+//        var checkBox =  document.createElement("input");
+//        checkBox.setAttribute("name","checkName");
+//        checkBox.setAttribute("type","checkbox");
+//        checkBox.setAttribute("id",i);
+//     //    checkBox.setAttribute("checked",false);
+//     //    checkBox.setAttribute("checkbox-type","");
+//        if(checkBoxObj[i].value){
+//         checkBox.setAttribute("value",checkBoxObj[i].value); 
+//        }
        
 
-       checkBoxDiv.appendChild(checkBox);
-       checkBoxDiv.appendChild(document.createTextNode(checkBoxObj[i].text));
-    }
+//        checkBoxDiv.appendChild(checkBox);
+//        checkBoxDiv.appendChild(document.createTextNode(checkBoxObj[i].text));
+//     }
  
-    for(var j=0;j<checkBoxDiv.children.length;j++){
-        checkBoxDiv.children[j].onclick = function() {
+//     for(var j=0;j<checkBoxDiv.children.length;j++){
+//         checkBoxDiv.children[j].onclick = function() {
 
-            var a=[],b=[];
-            var allCheck = document.getElementsByName("checkName");
+//             var a=[],b=[];
+//             var allCheck = document.getElementsByName("checkName");
 
-            // var checked =checkBoxAll.getAttribute("checked");
-            // console.log(checked);
+//             // var checked =checkBoxAll.getAttribute("checked");
+//             // console.log(checked);
 
-            if(checkBoxAll.getAttribute("checked")==true){  
-                    for(var i=0;i<allCheck.length;i++){
-                        allCheck[i].setAttribute("checked",true);
-                        a.push(allCheck[i].getAttribute("value"));
-                    }
-                    console.log(a);
-                }else{
-                    for(var i=0;i<allCheck.length;i++){
-                        if(allCheck[i].getAttribute("checked")==true){
-                            console.log(1);
-                            b.push(allCheck[i].getAttribute("value"));
-                        }
-                    console.log(b);
-                }
-            }
-        } 
-    }
+//             if(checkBoxAll.getAttribute("checked")==true){  
+//                     for(var i=0;i<allCheck.length;i++){
+//                         allCheck[i].setAttribute("checked",true);
+//                         a.push(allCheck[i].getAttribute("value"));
+//                     }
+//                     console.log(a);
+//                 }else{
+//                     for(var i=0;i<allCheck.length;i++){
+//                         if(allCheck[i].getAttribute("checked")==true){
+//                             console.log(1);
+//                             b.push(allCheck[i].getAttribute("value"));
+//                         }
+//                     console.log(b);
+//                 }
+//             }
+//         } 
+//     }
       
-}
+// }
 
 
-createCheckBox(region_radio_select, [{
-    value: 1,
-    text: "华东"
-}, {
-    value: 2,
-    text: "华南"
-},{
-    value: 3,
-    text: "华北"
-}]);
-createCheckBox(product_radio_select,[{
-    value:1,
-    text:"手机"
-},{
-    value:2,
-    text:"笔记本"
-},{
-    value:3,
-    text:"智能音箱"
-}]);
+// createCheckBox(region_radio_select, [{
+//     value: 1,
+//     text: "华东"
+// }, {
+//     value: 2,
+//     text: "华南"
+// },{
+//     value: 3,
+//     text: "华北"
+// }]);
+// createCheckBox(product_radio_select,[{
+//     value:1,
+//     text:"手机"
+// },{
+//     value:2,
+//     text:"笔记本"
+// },{
+//     value:3,
+//     text:"智能音箱"
+// }]);
 
 
 
 
-// region_select.onchange  = function(){
+region_select.onchange  = function(){
  
-//     var  data = selectData();
-//     console.log(data);
-//     newTable(data);
+    var  data = selectData();
+    console.log(data);
+    newTable(data);
     
-// }
-// product_select.onchange = function(){
-//     var  data = selectData();
-//     console.log(data);
-//     newTable(data);
-// }
+}
+product_select.onchange = function(){
+    var  data = selectData();
+    console.log(data);
+    newTable(data);
+}
 
 //根据select选项获取数据
 function selectData() {
