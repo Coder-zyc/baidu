@@ -120,8 +120,25 @@ function createCheckBox( checkBoxDiv, checkBoxObj ) {
 
            newTable( getData());
            mergeCell(1,0);
+
+           tr = document.querySelectorAll("tr");
+           if(tr.length >1){
+               for(var i=1;i<tr.length;i++){
+                    tr[i].onmouseover = function(){
+                        var data=[];
+                        var td =this.querySelectorAll("td");
+                        // var td =tr[i].querySelectorAll("td");
+                        for(var i=2 ;i<td.length;i++){
+                            data.push(td[i].firstChild.nodeValue);
+                        }
+                        barChar.setData(data);
+                        line_Chart.setData(data);
+                    }
+                }    
+            
+            }
         } 
-    
+        
       
 }
 

@@ -46,7 +46,7 @@ var table_wrapper = document.getElementById("table-wrapper");
 
 var region_radio_select = document.getElementById("region-radio-select");
 var product_radio_select = document.getElementById("product-radio-select");
-
+var tr;
 
 
 // function createCheckBox( checkBoxDiv, checkBoxObj ) {
@@ -134,11 +134,16 @@ region_select.onchange  = function(){
     newTable(data);
     
 }
+
+
 product_select.onchange = function(){
     var  data = selectData();
     console.log(data);
-    newTable(data);
+    newTable(data);   
+
 }
+
+
 
 //根据select选项获取数据
 function selectData() {

@@ -20,7 +20,6 @@ function newTable(data) {
     }
     table.appendChild(firstTr);
     
-
     for(var i in data) {
         var tr = document.createElement("tr");
         var productTd =  document.createElement("td");  
